@@ -1,0 +1,73 @@
+{
+  "name": "extension-config-patcher",
+  "displayName": "Extension Config Patcher",
+  "description": "Patch extension configuration to allow installation of VS Code extensions that are not available in other editors' marketplace.",
+  "publisher": "JindaiKirin",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.extension-config-patcher.patch",
+        "category": "Extension Config Patcher",
+        "title": "Patch"
+      },
+      {
+        "command": "extension.extension-config-patcher.restore",
+        "category": "Extension Config Patcher",
+        "title": "Restore"
+      }
+    ],
+    "configuration": {
+      "title": "Extension Config Patcher",
+      "properties": {
+        "extensionConfigPatcher.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto patch extension config"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "bun run package",
+    "compile": "bun run check-types && bun run lint && node esbuild.cjs",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.cjs --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "bun run check-types && bun run lint && node esbuild.cjs --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "bun run compile-tests && bun run compile && bun run lint",
+    "check-types": "tsc --noEmit",
+    "test": "vscode-test",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write src/"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.4.1",
+    "@tsuk1ko/eslint-config": "^1.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.18.6",
+    "@types/vscode": "^1.104.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "es-toolkit": "^1.39.10",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.2",
+    "write-json-file": "^7.0.0"
+  }
+}
