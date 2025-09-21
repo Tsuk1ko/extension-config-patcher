@@ -38,13 +38,16 @@
       }
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tsuk1ko/extension-config-patcher"
+  },
   "scripts": {
-    "vscode:prepublish": "bun run package",
     "compile": "bun run check-types && bun run lint && node esbuild.cjs",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.cjs --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "bun run check-types && bun run lint && node esbuild.cjs --production",
+    "package": "bun run check-types && bun run lint && node esbuild.cjs --production && bunx @vscode/vsce package",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "bun run compile-tests && bun run compile && bun run lint",
@@ -59,7 +62,7 @@
     "@tsuk1ko/eslint-config": "^1.1.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.18.6",
-    "@types/vscode": "^1.104.0",
+    "@types/vscode": "^1.0.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
     "es-toolkit": "^1.39.10",
