@@ -1,6 +1,6 @@
 # Extension Config Patcher
 
-A VS Code extension that patches the editor's configuration to enable access to the VS Code extension marketplace for non-official VS Code editors.
+An extension that patches the editor's configuration to enable access to the VS Code extension marketplace for non-official VS Code editors (e.g. Cursor).
 
 It will automatically check and apply patches when the editor starts up.
 
@@ -31,3 +31,5 @@ The extension modifies the `resources/app/product.json` file by updating followi
 ```
 
 This configuration allows the editor to connect to the official VS Code extension marketplace, allowing you to search and install extensions that were previously unavailable in your editor's marketplace.
+
+Original configuration file will be backup to `resources/app/product.bak.json`.

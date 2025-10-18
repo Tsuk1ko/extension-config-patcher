@@ -1,0 +1,5 @@
+{
+  "extension.extension-config-patcher.command.patch.title": "Patch and enable auto patching",
+  "extension.extension-config-patcher.command.restore.title": "Restore and disable auto patching",
+  "extension.extension-config-patcher.configuration.enable.description": "Auto patch extension marketplace configuration"
+}

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-const logChannel = vscode.window.createOutputChannel('Cursor Extension Config Patcher');
+const logChannel = vscode.window.createOutputChannel('Extension Config Patcher');
 
 export const log = (...args: any[]) => {
   console.log(...args);

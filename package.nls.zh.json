@@ -1,0 +1,5 @@
+{
+  "extension.extension-config-patcher.command.patch.title": "修补并启用自动修补",
+  "extension.extension-config-patcher.command.restore.title": "恢复并禁用自动修补",
+  "extension.extension-config-patcher.configuration.enable.description": "自动修补扩展商店配置"
+}

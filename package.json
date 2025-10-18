@@ -19,12 +19,12 @@
       {
         "command": "extension.extension-config-patcher.patch",
         "category": "Extension Config Patcher",
-        "title": "Patch"
+        "title": "%extension.extension-config-patcher.command.patch.title%"
       },
       {
         "command": "extension.extension-config-patcher.restore",
         "category": "Extension Config Patcher",
-        "title": "Restore"
+        "title": "%extension.extension-config-patcher.command.restore.title%"
       }
     ],
     "configuration": {
@@ -33,7 +33,7 @@
         "extensionConfigPatcher.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Auto patch extension config"
+          "description": "%extension.extension-config-patcher.configuration.enable.description%"
         }
       }
     }
@@ -48,29 +48,25 @@
     "watch:esbuild": "node esbuild.cjs --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "package": "bun run check-types && bun run lint && node esbuild.cjs --production && bunx @vscode/vsce package",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "bun run compile-tests && bun run compile && bun run lint",
     "check-types": "tsc --noEmit",
-    "test": "vscode-test",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "postversion": "tpv"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.4.1",
-    "@tsuk1ko/eslint-config": "^1.1.0",
+    "@antfu/eslint-config": "^6.0.0",
+    "@tsuk1ko/eslint-config": "^1.1.1",
+    "@tsuk1ko/postversion": "^1.0.2",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.18.6",
+    "@types/node": "^22.18.11",
     "@types/vscode": "^1.0.0",
-    "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2",
-    "es-toolkit": "^1.39.10",
-    "esbuild": "^0.25.10",
-    "eslint": "^9.36.0",
+    "es-toolkit": "^1.40.0",
+    "esbuild": "^0.25.11",
+    "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "write-json-file": "^7.0.0"
   }
 }
