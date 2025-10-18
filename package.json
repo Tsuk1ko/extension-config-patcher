@@ -3,7 +3,7 @@
   "displayName": "Extension Config Patcher",
   "description": "Patch extension configuration to allow installation of VS Code extensions that are not available in other editors' marketplace.",
   "publisher": "JindaiKirin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.0.0"
